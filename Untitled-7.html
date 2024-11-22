@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedTrack</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #333; /* Changed to dark grey */
+            color: #fff; /* Changed text color to white */
+        }
+
+        #header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        #header img {
+            width: 150px; /* Adjust size as needed */
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        h1, h2, h3, h4 {
+            color: #4CAF50;
+            text-align: center;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #444; /* Changed to slightly lighter grey */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #555; /* Changed to a darker grey */
+            color: #fff; /* Changed text color to white */
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #reminder-list {
+            margin-top: 30px;
+            background-color: #444; /* Changed to slightly lighter grey */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+    </style>
+    <link rel="stylesheet" href="//script.js">
+
+</head>
+<body>
+
+<div id="header">
+    <img src=LOGO.jpg alt="MedTrack logo" width="300">
+    <h1>MedTrack</h1>
+    <h3>Stay on track with MedTrack</h3>
+    <h4>Medication Reminder</h4>
+</div>
+
+<form id="medication-form">
+    <label for="medication-name">Medication Name:</label>
+    <input type="text" id="medication-name" required>
+
+    <label for="medication-dosage">Dosage:</label>
+    <input type="text" id="medication-dosage" required>
+
+    <label for="medication-frequency">Frequency:</label>
+    <select id="medication-frequency" required>
+        <option value="daily">Daily</option>
+        <option value="weekly">Weekly</option>
+        <option value="monthly">Monthly</option>
+    </select>
+
+    <label for="medication-time">Time:</label>
+    <input type="time" id="medication-time" required>
+
+    <button type="button" onclick="addReminder()">Set Reminder</button>
+</form>
+
+<div id="reminder-list">
+    <h2>Upcoming Reminders</h2>
+    <ul id="reminder-ul"></ul>
+</div>
+
+<script>
+    function addReminder() {
+        var name = document.getElementById('medication-name').value;
+        var dosage = document.getElementById('medication-dosage').value;
+        var frequency = document.getElementById('medication-frequency').value;
+        var time = document.getElementById('medication-time').value;
+
+        var reminderText = name + ' - ' + dosage + ' - ' + frequency + ' - ' + time;
+
+        var reminderList = document.getElementById('reminder-ul');
+        var listItem = document.createElement('li');
+        listItem.textContent = reminderText;
+        reminderList.appendChild(listItem);
+
+        // You can add more logic here to set up actual reminders using timers or other methods.
+    }
+</script>
+
+</body>
+</html>
